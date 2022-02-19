@@ -1,12 +1,12 @@
 version: "3.8"
 
 services:
-  mongodb:
-    image: mongo:5.0
-    ports:
-      - 27017:27017
-    volumes:
-      - ~/apps/mongo:/data/db
+#  mongodb:
+#    image: mongo:5.0
+#    ports:
+#      - 27017:27017
+#    volumes:
+#      - ~/apps/mongo:/data/db
   zoo1:
     image: confluentinc/cp-zookeeper:7.0.1
     hostname: zoo1
@@ -40,15 +40,11 @@ services:
       KAFKA_ADVERTISED_HOST_NAME: kafka1
     depends_on:
       - zoo1
-  app:
-      build:
-        dockerfile: Dockerfile
-      command: python manage.py runserver 0.0.0.0:8000
-      ports:
-        - "8000:8000"
-      environment:
-        - DEBUG=1
-  consumer:
-    build:
-      dockerfile: calculate/ConsumerDockerfile
-    command: python message_queue/consumer.py
+#  app:
+#      build:
+#        dockerfile: Dockerfile
+#      command: python manage.py runserver 0.0.0.0:8000
+#      ports:
+#        - "8000:8000"
+#      environment:
+#        - DEBUG=1

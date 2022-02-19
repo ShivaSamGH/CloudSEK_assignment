@@ -4,7 +4,6 @@ import os
 import sys
 from threading import Thread
 
-from calculate.consumer import consume
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'cloudSEK.settings')
@@ -19,6 +18,7 @@ def main():
     execute_from_command_line(sys.argv)
 
 
+
 if __name__ == '__main__':
     main()
-    consumer_t = Thread(target=consume())
+
