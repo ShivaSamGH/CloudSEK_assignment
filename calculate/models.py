@@ -13,3 +13,6 @@ class Calculation(models.Model):
 
     def get_unique_identifier(self):
         return self.unique_identifier
+
+    def get_answer(self):
+        return self.answer
